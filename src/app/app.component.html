@@ -1,12 +1,10 @@
-<app-header></app-header>
+<app-header (elementSelected)="onSelection($event)"></app-header>
+<!-- <app-header (selectedLink)="$event"></app-header> -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-shopping-list></app-shopping-list>
-      <hr>
-      <app-recipe-list></app-recipe-list>
-      <!-- <h2>THIS IS FINE.</h2> -->
-      <!-- <h3>No, really, I'm fine!</h3> -->
+      <app-recipes *ngIf="selectedLink === 'recipe-book'"></app-recipes>
+      <app-shopping-list *ngIf="selectedLink !== 'recipe-book'"></app-shopping-list>
     </div>
   </div>
 </div>
